@@ -11,6 +11,7 @@ private:
 	int denominator_ = 1;
 	
 	int HCF(int numerator, int denominator)
+
 	{
 		if (numerator < 0)numerator *= -1;
 		if (denominator < 0)denominator *= -1;
@@ -86,47 +87,47 @@ public:
 	}
 	Fraction operator ++ () 
 	{
-		Fraction rezult;
-		rezult.numerator_ = (this->numerator_ + this->denominator_);
-		rezult.denominator_ = (this->denominator_ );
-		int nod = HCF(rezult.numerator_, rezult.denominator_);
-		rezult.numerator_ /= nod;
-		rezult.denominator_ /= nod;
-		return rezult;
+		
+		this->numerator_ = (this->numerator_ + this->denominator_);
+		this->denominator_ = (this->denominator_ );
+		int nod = HCF(this->numerator_, this->denominator_);
+		this->numerator_ /= nod;
+		this->denominator_ /= nod;
+		return *this;
 
 	}
 
 	Fraction operator ++ (int)
 	{
-		Fraction rezult;
-		rezult.numerator_ = (this->numerator_ + this->denominator_);
-		rezult.denominator_ = (this->denominator_);
+		Fraction rezult=*this;
+		this->numerator_ = (this->numerator_ + this->denominator_);
+		this->denominator_ = (this->denominator_);
 		int nod = HCF(rezult.numerator_, rezult.denominator_);
-		rezult.numerator_ /= nod;
-		rezult.denominator_ /= nod;
+		this->numerator_ /= nod;
+		this->denominator_ /= nod;
 		return rezult;
 
 	}
 	Fraction operator -- ()
 	{
-		Fraction rezult;
-		rezult.numerator_ = (this->numerator_ + this->denominator_);
-		rezult.denominator_ = (this->denominator_);
-		int nod = HCF(rezult.numerator_, rezult.denominator_);
-		rezult.numerator_ /= nod;
-		rezult.denominator_ /= nod;
-		return rezult;
+		
+		this->numerator_ = (this->numerator_ + this->denominator_);
+		this->denominator_ = (this->denominator_);
+		int nod = HCF(this->numerator_, this->denominator_);
+		this->numerator_ /= nod;
+		this->denominator_ /= nod;
+		return *this;
 
 	}
 
 	Fraction operator -- (int)
 	{
-		Fraction rezult;
-		rezult.numerator_ = (this->numerator_ + this->denominator_);
-		rezult.denominator_ = (this->denominator_);
+		Fraction rezult=*this;
+		this->numerator_ = (this->numerator_ + this->denominator_);
+		this->denominator_ = (this->denominator_);
 		int nod = HCF(rezult.numerator_, rezult.denominator_);
-		rezult.numerator_ /= nod;
-		rezult.denominator_ /= nod;
+		this->numerator_ /= nod;
+		this->denominator_ /= nod;
 		return rezult;
 
 	}
@@ -176,12 +177,12 @@ int main()
 	std::cout << f1 << " - " << f2 << " = " << f1 - f2 << std::endl;
 	std::cout << f1 << " * " << f2 << " = " << f1 * f2 << std::endl;
 	std::cout << f1 << " / " << f2 << " = " << f1 / f2 << std::endl;
-	std::cout << "++f1 = " << ++f1 << " * " << f2 << " = " << f1 * f2 << std::endl;
-	std::cout << "--f1 = " << --f1 << " * " << f2 << " = " << f1 * f2 << std::endl;
-	std::cout << "f1 = " << f1 << std::endl;
-	std::cout << "f2++ = " << f1 << " * " << ++f2 << " = " << f1 * f2 << std::endl;
-	std::cout << "f2-- = " << f1 << " * " << f2-- << " = " << f1 * f2 << std::endl;
-	std::cout << "f2-- = " << f1 << " * " << f2-- << " = " << f1 * f2 << std::endl;
+	std::cout << "++f1 = " << ++f1 <<  " = " << f1  << std::endl;
+	std::cout << "--f1 = " << --f1 <<  " = " << f1 << std::endl;
+	std::cout << "f1 ++ " << f1 ++<< std::endl;
+	std::cout << "f2++ = " << f2 << " ++=" << ++f2 <<  std::endl;
+	std::cout << "f2-- = " << f2 << " --= " << f2-- <<  std::endl;
+	std::cout << "f2-- = " << f2 << "--= " << --f2 << std::endl;
 	std::cout << "f2 = " << f2 << std::endl;
 
 }
