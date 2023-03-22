@@ -111,7 +111,7 @@ public:
 	Fraction operator -- ()
 	{
 		
-		this->numerator_ = (this->numerator_ + this->denominator_);
+		this->numerator_ = (this->numerator_ - this->denominator_);
 		this->denominator_ = (this->denominator_);
 		int nod = HCF(this->numerator_, this->denominator_);
 		this->numerator_ /= nod;
@@ -119,11 +119,12 @@ public:
 		return *this;
 
 	}
+	//измения только для кооммита
 
 	Fraction operator -- (int)
 	{
 		Fraction rezult=*this;
-		this->numerator_ = (this->numerator_ + this->denominator_);
+		this->numerator_ = (this->numerator_ - this->denominator_);
 		this->denominator_ = (this->denominator_);
 		int nod = HCF(rezult.numerator_, rezult.denominator_);
 		this->numerator_ /= nod;
